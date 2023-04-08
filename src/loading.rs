@@ -34,6 +34,22 @@ pub struct AudioAssets {
     pub flying: Handle<AudioSource>,
     #[asset(path = "audio/scifi/laserLarge_003.ogg")]
     pub shoot: Handle<AudioSource>,
+    #[asset(path = "audio/scifi/explosionCrunch_003.ogg")]
+    pub explosion: Handle<AudioSource>,
+    #[asset(path = "audio/scifi/forceField_000.ogg")]
+    pub force_field_0: Handle<AudioSource>,
+    #[asset(path = "audio/scifi/forceField_001.ogg")]
+    pub force_field_1: Handle<AudioSource>,
+    #[asset(path = "audio/scifi/forceField_002.ogg")]
+    pub force_field_2: Handle<AudioSource>,
+    #[asset(path = "audio/scifi/forceField_003.ogg")]
+    pub force_field_3: Handle<AudioSource>,
+    #[asset(path = "audio/scifi/forceField_004.ogg")]
+    pub force_field_4: Handle<AudioSource>,
+    #[asset(path = "audio/interface/pluck_001.ogg")]
+    pub pluck_001: Handle<AudioSource>,
+    #[asset(path = "audio/interface/pluck_002.ogg")]
+    pub pluck_002: Handle<AudioSource>,
 }
 
 #[derive(AssetCollection, Resource)]
