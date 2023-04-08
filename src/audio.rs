@@ -1,4 +1,4 @@
-use crate::actions::{set_movement_actions, Actions};
+use crate::actions::{set_movement_actions, set_player_shoot, Actions};
 use crate::loading::AudioAssets;
 use crate::GameState;
 use bevy::prelude::*;
@@ -14,6 +14,11 @@ impl Plugin for InternalAudioPlugin {
             .add_system(
                 control_flying_sound
                     .after(set_movement_actions)
+                    .in_set(OnUpdate(GameState::Playing)),
+            )
+            .add_system(
+                control_shoot_sound
+                    .after(set_player_shoot)
                     .in_set(OnUpdate(GameState::Playing)),
             );
     }
@@ -51,5 +56,11 @@ fn control_flying_sound(
             }
             _ => {}
         }
+    }
+}
+
+fn control_shoot_sound(actions: Res<Actions>, audio_assets: Res<AudioAssets>, audio: Res<Audio>) {
+    if actions.player_shoot {
+        audio.play(audio_assets.shoot.clone());
     }
 }
